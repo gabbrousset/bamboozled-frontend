@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import { AppRegistry } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AppearanceProvider } from 'react-native-appearance';
@@ -31,7 +30,5 @@ const App = () => (
         </AppearanceProvider>
     </SafeAreaProvider>
 );
-
-AppRegistry.registerComponent('bamboozled', () => App);
 
 export default App;
