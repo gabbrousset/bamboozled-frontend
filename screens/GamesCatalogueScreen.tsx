@@ -6,26 +6,22 @@ import { StackScreenProps } from '@react-navigation/stack';
 import ThemeContext from '../theme/ThemeContext';
 import { MainStackParamList } from '../navigation/AppNavigator';
 import TitleComponent from '../components/TitleComponent';
+import BackArrowComponent from '../components/TopNavigation/BackArrowComponent';
 
-type Props = StackScreenProps<MainStackParamList, 'Home'>;
+type Props = StackScreenProps<MainStackParamList, 'GamesCatalogue'>;
 
-const HomeScreen: React.FC<Props> = ({ navigation }: Props) => {
+const GamesCatalogueScreen: React.FC<Props> = ({ navigation }: Props) => {
     return (
         <Layout style={styles.container}>
             <SafeAreaView style={styles.container}>
                 <TitleComponent
-                    title={{ name: 'Bamboozled', category: 'h1' }}
+                    title='Games Catalogue'
+                    left={
+                        <BackArrowComponent
+                            onPress={() => navigation.navigate('Home')}
+                        />
+                    }
                 />
-                <ButtonGroup>
-                    <Button onPress={() => navigation.navigate('JoinGame')}>
-                        Join a Game
-                    </Button>
-                    <Button
-                        onPress={() => navigation.navigate('GamesCatalogue')}
-                    >
-                        Start a Game
-                    </Button>
-                </ButtonGroup>
             </SafeAreaView>
         </Layout>
     );
@@ -39,4 +35,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HomeScreen;
+export default GamesCatalogueScreen;
